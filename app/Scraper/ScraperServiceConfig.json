@@ -1,0 +1,37 @@
+{
+    "stackOverflow":{
+        "name": "Stack Overflow",
+        "baseSearchURI" : "https://stackoverflow.com/jobs",
+        "searchSegments": "q",
+        "parentDOM": "",
+        "search_query_separator" : "+",
+        "extractables": [
+            {
+                "variable": "titles",
+                "source": ".listResults h2",
+                "attribute": "text"
+            },
+            {
+                "variable": "links",
+                "source": ".listResults a.s-link",
+                "attribute": "href"
+            },
+            {
+                "variable": "tags",
+                "source": ".ps-relative.d-inline-block",
+                "attribute": "text"
+            },
+            {
+                "variable": "location",
+                "source": ".listResults h3",
+                "attribute": "text"
+            },
+            {
+                "variable": "dates",
+                "source": ".listResults ul.fs-caption li:first-child",
+                "attribute": "text"
+            }
+        ]
+    }
+}
+
