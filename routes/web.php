@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\SearchController;
 
 /*
@@ -29,3 +30,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/', [ScraperController::class, 'index']);
 Route::get('/search', [SearchController::class, 'get_search_results'])->name('get_search_results');
+Route::post('/save/job', [JobController::class, 'save_job'])->name('save_job');

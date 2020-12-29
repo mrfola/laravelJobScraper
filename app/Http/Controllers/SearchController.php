@@ -22,6 +22,7 @@ class SearchController extends Controller
 
         $search_term = $request["search_term"];
         $scraped_data = [];
+        $new_data = [];
         //loop through config file and get data from all websites
         foreach($this->scraper_config_variables as $key => $job_website)
         {
@@ -29,19 +30,19 @@ class SearchController extends Controller
             "searchSegments" => $job_website["searchSegments"],
             "baseSearchURI" =>  $job_website["baseSearchURI"],
             "extractables" => $job_website["extractables"],
-            "search_query_separator" => $job_website["search_query_separator"]
+            "search_query_separator" => $job_website["search_query_separator"],
+            "parentDOM" => $job_website["parentDOM"]
             ]);
                 
             $data = $goutteScraperService->scrap($search_term);
             //add name of website (e.g stackoverflow) to the scraped data array
             $data["name"] = $job_website["name"];
+
             $scraped_data[$key] = $data;
             //put the whole data into an array with key of "data", so I can loop through that array in the view
-            $data["data"] = $scraped_data;
+            $new_data["data"] = $scraped_data;
         }           
-        
-        
-        return view('welcome', $data);
+        return view('welcome', $new_data);
     }
 
 }

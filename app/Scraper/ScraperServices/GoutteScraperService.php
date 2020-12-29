@@ -22,6 +22,7 @@ class GoutteScraperService implements ScraperInterface
     public $search_segments;
     public $search_term;
     public $extractables;
+    public $parent_dom;
 
      public function set_variables($job_website)
      {
@@ -30,6 +31,7 @@ class GoutteScraperService implements ScraperInterface
         $this->base_search_url =  $job_website["baseSearchURI"];
         $this->extractables = $job_website["extractables"];
         $this->search_query_separator = $job_website["search_query_separator"];
+        $this->parent_dom = $job_website["parentDOM"];
      }
 
      //build full search url from base url and filters
@@ -56,7 +58,10 @@ class GoutteScraperService implements ScraperInterface
      
      public function extract_data($scraper_service, $extractables)
      {
-        $data_result_array = [];
+
+         $data_result_array["job_data_id"] = "ABSCDE";//$request["job_data_id"];
+         $data_result_array["base_search_uri"] =  $this->base_search_url ;
+         $data_result_array["parent_dom"] = $this->parent_dom;
        
         foreach($extractables as $extractable)
         {
@@ -77,8 +82,8 @@ class GoutteScraperService implements ScraperInterface
            //compile results from each loop into an array.
            $data_result_array[$extractable_variable] = $$extractable_variable;
         }
-
-        return $data_result_array;
+        
+         return $data_result_array;
      } 
 
 

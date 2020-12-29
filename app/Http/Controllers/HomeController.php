@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth()->user();
+        $user_jobs = $user->Jobs()->get();
+        $data["jobs"] = $user_jobs;
+        return view('home', $data);
     }
 }
