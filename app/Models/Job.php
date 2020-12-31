@@ -9,11 +9,6 @@ class Job extends Model
 {
     use HasFactory;
 
-    public function User_Jobs()
-    {
-       return $this->hasMany(User_Job::class);
-    }
-
     public function User()
     {
         return $this->belongsTo(User::class);

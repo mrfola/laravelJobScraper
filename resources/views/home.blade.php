@@ -18,7 +18,7 @@
                             <div class="top-panel">
                                 <span class="bg-dark" style="float:right; color:white; padding:0.3em 1em; display:inline-block;">{{$job["job_site"]}} </span>
                                 <div class="py-3">
-                                    <div class="font-bold text-lg mb-2">{{$job["job_title"]}}</div>
+                                    <a href={{$job["job_url"]}} class="font-bold text-lg mb-2">{{$job["job_title"]}}</a>
                                     <p class="text-gray-700 text-base">{{$job["job_location"]}}</p>
                                 </div>
                             </div>

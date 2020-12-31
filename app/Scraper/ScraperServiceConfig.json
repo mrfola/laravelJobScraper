@@ -1,10 +1,12 @@
 {
     "stackOverflow":{
         "name": "Stack Overflow",
+        "baseURI": "https://stackoverflow.com",
         "baseSearchURI" : "https://stackoverflow.com/jobs",
         "searchSegments": "q",
         "parentDOM": "parentDOM",
         "search_query_separator" : "+",
+        "link_type" : "relative",
         "extractables": [
             {
                 "variable": "titles",
@@ -37,10 +39,12 @@
 
     "linkedIn":{
         "name": "LinkedIn",
+        "baseURI": "https://linkedin.com",
         "baseSearchURI" : "https://linkedin.com/jobs/search",
         "searchSegments": "keywords",
         "parentDOM": ".job-search-results",
         "search_query_separator" : "%20",
+        "link_type": "absolute",
         "extractables": [
             {
                 "variable": "titles",

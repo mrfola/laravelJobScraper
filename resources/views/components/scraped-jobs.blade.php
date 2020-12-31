@@ -23,19 +23,20 @@
     <div class="container overflow-hidden">
  
         @foreach($data as $job_website)
-       
+        
             @isset($job_website['titles'])
 
             <!-- row -->
 
             <div class="row gx-5">
                 @foreach($job_website['titles'] as $key => $title)
+
                     <div class="col-sm-4">
                         <div class="p-3 border bg-light my-2">
                             <div class="top-panel">
                                 <span class="bg-dark" style="float:right; color:white; padding:0.3em 1em; display:inline-block;">{{$job_website["name"]}} </span>
                                 <div class="py-3">
-                                    <div class="font-bold text-lg mb-2">{{$title}}</div>
+                                    <a href="{{isset($job_website["links"][$key]) ? $job_website["links"][$key] : '#'}}" class="font-bold text-lg mb-2">{{$title}}</a>
                                     <p class="text-gray-700 text-base">{{isset($job_website["location"][$key]) ? $job_website["location"][$key] : 'N/A'}}</p>
                                 </div>
                             </div>
@@ -53,6 +54,7 @@
                                     <input hidden name="parent_dom" value="{{$job_website['parent_dom']}}" />
                                     <input hidden name="job_location" value="{{isset($job_website["location"][$key]) ? $job_website["location"][$key] : 'N/A'}}" />
                                     <input hidden name="job_title" value="{{$title}}" />
+                                    <input hidden name="job_url" value="{{isset($job_website["links"][$key]) ? $job_website["links"][$key] : '#'}}" />
                                     <button style="float:right; background:#6d489c;color:white; border-radius:0px;" id="saveJob" class="btn" type="submit"> Save Job </button>
                                 </form>
                                 @endauth  

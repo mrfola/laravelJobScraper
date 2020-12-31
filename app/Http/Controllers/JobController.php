@@ -24,6 +24,7 @@ class JobController extends Controller
         $new_job["parent_dom"] = $request["parent_dom"];
         $new_job["job_title"] = $request["job_title"];
         $new_job["job_location"] = $request["job_location"];
+        $new_job["job_url"] = $request["job_url"];
         
         if($new_job->save())
         {

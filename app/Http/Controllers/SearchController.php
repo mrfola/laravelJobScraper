@@ -31,7 +31,9 @@ class SearchController extends Controller
             "baseSearchURI" =>  $job_website["baseSearchURI"],
             "extractables" => $job_website["extractables"],
             "search_query_separator" => $job_website["search_query_separator"],
-            "parentDOM" => $job_website["parentDOM"]
+            "parentDOM" => $job_website["parentDOM"],
+            "link_type" => $job_website["link_type"],
+            "baseURI" => $job_website["baseURI"]
             ]);
                 
             $data = $goutteScraperService->scrap($search_term);
