@@ -3,7 +3,7 @@
         "name": "Stack Overflow",
         "baseSearchURI" : "https://stackoverflow.com/jobs",
         "searchSegments": "q",
-        "parentDOM": "",
+        "parentDOM": "parentDOM",
         "search_query_separator" : "+",
         "extractables": [
             {

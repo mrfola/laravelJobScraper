@@ -30,4 +30,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Route::get('/', [ScraperController::class, 'index']);
 Route::get('/search', [SearchController::class, 'get_search_results'])->name('get_search_results');
-Route::post('/save/job', [JobController::class, 'save_job'])->name('save_job');
+Route::post('/job/save', [JobController::class, 'save_job'])->name('save_job');
+Route::delete('/job/{job}/delete', [JobController::class, 'delete_job'])->name('job.delete');

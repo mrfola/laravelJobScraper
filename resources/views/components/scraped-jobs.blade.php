@@ -1,6 +1,3 @@
-
-    <!-- row -->
- 
   <!-- Modal -->
   <div class="modal fade" id="saveJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -26,9 +23,10 @@
     <div class="container overflow-hidden">
  
         @foreach($data as $job_website)
-        
        
             @isset($job_website['titles'])
+
+            <!-- row -->
 
             <div class="row gx-5">
                 @foreach($job_website['titles'] as $key => $title)
@@ -41,12 +39,8 @@
                                     <p class="text-gray-700 text-base">{{isset($job_website["location"][$key]) ? $job_website["location"][$key] : 'N/A'}}</p>
                                 </div>
                             </div>
-                            <!-- bottom layer of card (containing link and time) -->
-                            <div  class="flex justify-between px-6 pt-2 pb-4"> 
-                               {{-- @isset($links[$key])
-                                    <a href={{$links[$key]['href']}} class="font-bold text-indigo-700 text-base mx-2 py-1 px-3" style="background:#222;color:#ffffff;"> View </a>
-                                @endisset --}}
-                    
+                            <!-- bottom layer of card (containing time) -->
+                            <div  class="flex justify-between px-6 pt-2 pb-4">                     
                                 <span class="text-gray-700 text-sm"> {{isset($job_website["dates"][$key]) ? $job_website["dates"][$key] : 'N/A'}} </span>
                                 @guest
                                 <button style="float:right; background:#6d489c;color:white; border-radius:0px;" id="saveJob" class="btn" data-toggle="modal" data-target="#saveJob" type="button"> Save Job </button>
@@ -57,6 +51,8 @@
                                     <input hidden name="job_data_id" value="{{$job_website['job_data_id']}}" />
                                     <input hidden name="base_search_uri" value="{{$job_website['base_search_uri']}}" />
                                     <input hidden name="parent_dom" value="{{$job_website['parent_dom']}}" />
+                                    <input hidden name="job_location" value="{{isset($job_website["location"][$key]) ? $job_website["location"][$key] : 'N/A'}}" />
+                                    <input hidden name="job_title" value="{{$title}}" />
                                     <button style="float:right; background:#6d489c;color:white; border-radius:0px;" id="saveJob" class="btn" type="submit"> Save Job </button>
                                 </form>
                                 @endauth  

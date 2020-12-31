@@ -19,6 +19,8 @@ class CreateJobsTable extends Migration
             $table->text('job_site');
             $table->text('base_search_uri');
             $table->text('parent_dom');
+            $table->text('job_title');
+            $table->text('job_location');
             $table->foreignId('user_id');
             $table->timestamps();
         });

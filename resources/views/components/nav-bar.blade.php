@@ -5,7 +5,7 @@
             @if (Route::has('login'))
                 @auth
                     <span style="color:white;"> | </span>
-                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline" style="font-size:1em; color:white;">Dashboard</a>
+                    <a href="{{ route('home') }}" class="text-sm text-gray-700 underline" style="font-size:1em; color:white;">Dashboard</a>
                 @endauth
                 @guest
                     <span style="color:white;"> | </span>
