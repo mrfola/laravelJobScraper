@@ -38,14 +38,8 @@
             @endforeach
         </div>
 
-        @else
-            <p>You have not saved any job yet</p>
-        @endisset
-</div>
-@endsection
 
-              <!-- Modal -->
-<div class="modal fade" id="deleteJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="deleteJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
             <div class="modal-header">
@@ -59,7 +53,7 @@
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form method="POST" action="/job/{{$job['id']}}/delete">
+            <form method="POST" action="/job/{{isset($job['id']) ? $job['id'] : ''}}/delete">
             @csrf
             @method('DELETE')
                 <button type="submit" class="btn btn-primary" href="#">Delete</button>
@@ -68,3 +62,12 @@
       </div>
     </div>
 </div>
+
+
+        @else
+            <p>You have not saved any job yet</p>
+        @endisset
+</div>
+@endsection
+
+              <!-- Modal -->
