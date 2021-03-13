@@ -18,7 +18,9 @@
     @if(@isset($data))
         @include('components.scraped-jobs')
     @else
+    <div class="container">
         <p> Search for a tech job</p>
+    </div>
     @endif
     </div>
     

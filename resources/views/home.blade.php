@@ -30,38 +30,13 @@
                             <!-- bottom layer of card (containing refresh and delete buttons) -->
                             <div  class="flex justify-between px-6 pt-2 pb-4" style="display:flex; justify-content:space-evenly;">                            
                                 <button class="btn btn-success" style="border-radius:0px;"> Refresh </button>
-                                <button style=" border-radius:0px;" id="deleteJob" class="btn btn-danger" data-job-id="{{$job["id"]}}" data-toggle="modal" data-target="#deleteJob" type="button"> Delete </button>
+                                <button style=" border-radius:0px;" id="deleteJob" class="btn btn-danger" data-toggle="modal" data-target="#deleteJob" type="button"> Delete </button>
                             </div>
                         </div>
                     </div> 
             
             @endforeach
         </div>
-
-
-    <div class="modal fade" id="deleteJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-            This action cannot be reversed. <br><br> Are you sure you want to delete  this job?
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <form method="POST" action="/job/{{isset($job['id']) ? $job['id'] : ''}}/delete">
-            @csrf
-            @method('DELETE')
-                <button type="submit" class="btn btn-primary" href="#">Delete</button>
-            </form>
-            </div>
-      </div>
-    </div>
-</div>
 
 
         @else
@@ -71,3 +46,26 @@
 @endsection
 
               <!-- Modal -->
+              <div class="modal fade" id="deleteJob" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to delete?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        This action cannot be reversed. <br><br> Are you sure you want to delete  this job?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <form method="POST" action="/job/{{isset($job['id']) ? $job['id'] : ''}}/delete">
+                        @csrf
+                        @method('DELETE')
+                            <button type="submit" class="btn btn-primary" href="#">Delete</button>
+                        </form>
+                        </div>
+                  </div>
+                </div>
+            </div>
